@@ -11,8 +11,11 @@ export default function () {
         width="75%"
         height=""
       /> */}
+      <h1>
+        stocks<text style={{ color: "forestgreen" }}>U</text>p
+      </h1>
       <h3>
-        Welcome to Stocks Up
+        Welcome to stocks<text style={{ color: "forestgreen" }}>U</text>p
         <br /> the perfect place to manage your stocks{" "}
       </h3>
       <div className="infopar">
