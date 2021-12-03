@@ -94,14 +94,14 @@ export default function ({ currentUser }) {
               <p style={{ margin: "3px" }}>${s.buy}</p>
               <button
                 className="buybtn"
-                onClick={() => this.props.buyStock(key)}
+                // onClick={() => this.props.buyStock(key)}
               >
                 BUY
               </button>
             </div>
             <div className="price">
               {/* TASK 1: Add a reduce function to caculate the total buy */}
-              <p style={{ margin: "3px" }}>{s.sell}</p>
+              <p style={{ margin: "3px" }}>${s.sell}</p>
               <button
                 style={{ background: "red", color: "white" }}
                 className="sellbtn"
