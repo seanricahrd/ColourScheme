@@ -1,2 +1,3 @@
-# ColourScheme
+# StonksUp
+
 Created with CodeSandbox

@@ -1,0 +1,100 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+html,
+body,
+.app {
+  width: 100%;
+  height: 100%;
+}
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: rgb(206, 240, 195);
+  padding: none;
+}
+.infopar {
+  background-color: white;
+  display: flex;
+}
+.par {
+  background: ;
+  margin: 55px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 20%;
+}
+.container {
+  display: flex;
+}
+.empbtn {
+  background-color: blue;
+  color: white;
+  width: 85%;
+}
+.orders {
+  background-color: rgb(255, 255, 255);
+  width: 60%;
+  justify-content: space-between;
+  border-radius: 25px;
+}
+.buttons {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  margin: auto;
+  margin-bottom: 20px;
+  max-width: 700px;
+  border-radius: 25px;
+  align-items: center;
+}
+.buttons:hover {
+  transform: scale(1.15);
+}
+.buybtn {
+  background: #50ff10;
+  color: white;
+  marginleft: auto;
+}
+.li {
+  list-style: none;
+}
+
+.price {
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.navButton {
+  height: 15vh;
+  width: 20%;
+  border: none;
+  background-color: rgb(206, 240, 195);
+}
+.navButton:hover {
+  background-color: #b4dfa4;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  background-color: rgb(24, 231, 180);
+}
+.submit {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  color: rgb(24, 231, 180);
+  background-color: rgb(0, 0, 0);
+}
