@@ -34,13 +34,13 @@ body,
 }
 .orders {
   color: white;
-  background-image: radial-gradient(rgb(30, 30, 30), black);
+  background-image: radial-gradient(rgb(50, 50, 50), black);
   width: 60%;
   justify-content: space-between;
   border-radius: 25px;
 }
 .buttons {
-  background-image: radial-gradient(rgb(30, 30, 30), black);
+  background-image: radial-gradient(rgb(50, 50, 50), black);
   color: white;
   position: relative;
   /* background-color: rgb(17, 17,17); */
