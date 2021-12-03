@@ -11,6 +11,7 @@ export default function () {
         width="75%"
         height=""
       /> */}
+      <h1></h1>
       <h1>
         stocks<text style={{ color: "forestgreen" }}>U</text>p
       </h1>
