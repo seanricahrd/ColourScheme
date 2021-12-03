@@ -45,7 +45,7 @@ const ShowBalance = ({ currentUser, setBalance, setBalanceID, balance }) => {
   }
 
   return (
-    <div>
+    <div className="showBalance">
       {currentUser.email}
       <br />
       balance: ${balance}

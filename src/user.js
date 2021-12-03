@@ -34,7 +34,9 @@ const User = ({ currentUser, balanceID, balance, setBalance }) => {
             onChange={(e) => setNewBalance(balance + Number(e.target.value))}
           />
         </div>
-        <button>Add to balance</button>
+        <button style={{ color: "white", backgroundColor: "forestgreen" }}>
+          Add to balance
+        </button>
       </form>
     </div>
   );

@@ -87,7 +87,7 @@ export default function ({ setTheAuthUser, setBalance, balance }) {
           signIn(auth, email, password, setTheAuthUser);
         }}
       >
-        <label>
+        <label className="Login">
           Email
           <input
             type="email"
