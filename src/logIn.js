@@ -38,7 +38,7 @@ const signUp = (auth, email, password, setTheAuthUser) => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-
+      alert(errorMessage);
       // ..
     });
 };
@@ -61,6 +61,7 @@ const signIn = (auth, email, password, setTheAuthUser) => {
       console.log(errorMessage);
       const user = null;
       console.log(user);
+      alert(errorMessage);
     });
 };
 
@@ -71,8 +72,9 @@ export default function ({ setTheAuthUser, setBalance, balance }) {
 
   return (
     <div>
-      {console.log}
-      <h1>--App Name and Logo--</h1>
+      <h1>
+        stocks<text style={{ color: "forestgreen" }}>U</text>p
+      </h1>
       <img
         className="background"
         src={avatar}

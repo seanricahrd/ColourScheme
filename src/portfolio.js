@@ -10,8 +10,10 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 
-export default function ({ currentUser }) {
+export default function ({ currentUser, balance, balanceID }) {
   const [stockies, setStockies] = useState([]);
+  const [selling, setSelling] = useState([]);
+  const [newBalance, seNewBalance] = useState(balance);
 
   useEffect(() => {
     const q = query(
@@ -29,52 +31,75 @@ export default function ({ currentUser }) {
     return () => unsub();
   }, [currentUser]);
 
-  async function sellStock(id) {
-    //console.log("DELETING STOCK");
-    //console.log(id);
-    await deleteDoc(doc(db, "Stockies", id));
+  async function removeFromPortfolio() {
+    try {
+      let id = selling[0].id;
+      let s = selling[0].sell;
+
+      let added = Number(newBalance + s);
+      await updateDoc(doc(db, "Stockies", balanceID), {
+        balance: added
+      });
+      console.log(s);
+
+      selling.length = 0;
+      console.log("DELETING STOCK");
+      console.log(id);
+      await deleteDoc(doc(db, "Stockies", id));
+    } catch (error) {}
   }
+
+  const sellStock = (object) => {
+    console.log("BUTTON PRESSED");
+    console.log(object);
+    selling.length = 0;
+
+    console.log("SELLING");
+    console.log(selling);
+    //let foundItem = stockies.filter(findItemByIndex(index));
+    setSelling(selling.concat(object));
+    console.log(selling.length);
+  };
+
+  // const findItemByIndex(index){
+
+  //   return function (object){
+  //       return Object.id === index;
+  //   };
+  // }
 
   return (
     <div>
       <h1>PORTFOLIO</h1>
+      <h2 className="value">
+        VALUE:
+        <br />$
+        {stockies
+          .reduce((total, obj) => {
+            return total + obj.buy;
+          }, 0)
+          .toFixed(2)}
+      </h2>
       <div className="container">
         <div className="orders">
           <h2>BUYING:</h2>
-          Total cost:{" "}
-          {/* {this.state.buying.reduce((total, item) => {
-              return total + item.rates.buy;
-            }, 0)} */}
-          <br />
-          <button className="empbtn" onClick={this.addPortfolio}>
-            ADD TO PORTFOLIO
-          </button>
-          {/* TASK 3：Add a button to REMOVE the Portfolio */}
-          <ol>
-            {/* {this.state.buying.map((s, key) => (
-                <li key={key}>
-                  {s.stock.symbol} {s.stock.name} ${s.rates.buy}
-                </li>
-              ))} */}
-          </ol>
+          Total cost: <br />
+          Buy from the Stonks page
         </div>
-        <pre> </pre>
+
         <div className="orders">
           <h2>SELLING:</h2>
-          Total cost:{" "}
-          {/* {this.state.selling.reduce((total, item) => {
-              return total + item.rates.sell;
-            }, 0)} */}
-          <br />
-          <button className="empbtn" onClick={this.empty2}>
+          Total cost: <br />
+          {console.log(selling)}
+          <button className="empbtn" onClick={removeFromPortfolio}>
             REMOVE FROM PORTFOLIO
           </button>
           <ol>
-            {/* {this.state.selling.map((s, key) => (
-                <li key={key}>
-                  {s.stock.symbol} {s.stock.name} ${s.rates.sell}
-                </li>
-              ))} */}
+            {selling.map((s, key) => (
+              <li key={key}>
+                {s.symbol} {s.name} ${s.sell}
+              </li>
+            ))}
           </ol>
         </div>
       </div>
@@ -83,8 +108,7 @@ export default function ({ currentUser }) {
       {stockies.map((s, key) => (
         <div className="li" key={s.id}>
           <div className="buttons" onMouseOver={this.boxMouseOverHandler}>
-            <b>{console.log(s)}</b>
-            {s.symbol}
+            <b>{s.symbol}</b>
             <div style={{ alignItems: "center", width: "80%" }}>
               {s.name}
               <br />
@@ -94,6 +118,7 @@ export default function ({ currentUser }) {
               <p style={{ margin: "3px" }}>${s.buy}</p>
               <button
                 className="buybtn"
+                style={{ background: "none" }}
                 // onClick={() => this.props.buyStock(key)}
               >
                 BUY
@@ -105,7 +130,9 @@ export default function ({ currentUser }) {
               <button
                 style={{ background: "red", color: "white" }}
                 className="sellbtn"
-                onClick={() => sellStock(s.id)}
+                onClick={() => {
+                  sellStock(s);
+                }}
               >
                 SELL
               </button>

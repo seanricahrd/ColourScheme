@@ -101,9 +101,7 @@ class App extends Component {
     //   <li key={key}>
     //     {s.stock.symbol} {s.stock.name} ${s.rates.buy} {s.rates.sell}
     //   </li>
-
     let s = this.state.buying[0];
-
     // console.log("buying array");
     // console.log(s.stock.name);
     // console.log(s.rates.buy);
@@ -112,10 +110,8 @@ class App extends Component {
     // console.log(this.state.newBalance);
     let minused = Number(this.state.newBalance - s.rates.buy);
     //console.log(minused);
-
     // console.log("BELOW");
     // console.log(this.state.newBalance);
-
     await updateDoc(doc(db, "Stockies", this.props.balanceID), {
       balance: minused
     });
@@ -178,11 +174,7 @@ class App extends Component {
               return total + item.rates.sell;
             }, 0)}
             <br />
-            {this.state.selling.length !== 0 && (
-              <button className="empbtn" onClick={this.empty2}>
-                REMOVE FROM PORTFOLIO
-              </button>
-            )}
+            Sell from your portfolio
             <ol>
               {this.state.selling.map((s, key) => (
                 <li key={key}>

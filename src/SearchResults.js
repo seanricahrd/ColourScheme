@@ -47,7 +47,7 @@ class SearchResults extends Component {
                 <div className="price">
                   <p style={{ margin: "3px" }}>{s.rates.sell}</p>
                   <button
-                    style={{ background: "red", color: "white" }}
+                    style={{ background: "none", color: "white" }}
                     className="sellbtn"
                     onClick={() => this.props.sellStock(key)}
                   >

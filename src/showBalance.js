@@ -31,15 +31,9 @@ const ShowBalance = ({ currentUser, setBalance, setBalanceID, balance }) => {
     return () => unsub();
   }, [currentUser]);
 
-  //console.log("SHOWING THE BALANCE OBJ");
-  //console.log(balanceObj[0].balance)
-
   try {
     setBalance(balanceObj[0].balance);
     setBalanceID(balanceObj[0].id);
-    console.log("SHOWING THE BALANCE OBJ");
-    console.log(balanceObj[0]);
-    console.log(balanceObj[0].id);
   } catch (error) {
     // ...
   }
@@ -48,7 +42,7 @@ const ShowBalance = ({ currentUser, setBalance, setBalanceID, balance }) => {
     <div className="showBalance">
       {currentUser.email}
       <br />
-      balance: ${balance}
+      balance: ${balance.toFixed(2)}
     </div>
   );
 };

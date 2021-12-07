@@ -58,7 +58,13 @@ export default function App() {
         </div>
         {/* {console.log(page)} */}
         {page === "home" && <Homepage currentUser={theAuthUser} />}
-        {page === "portfolio" && <Portfolio currentUser={theAuthUser} />}
+        {page === "portfolio" && (
+          <Portfolio
+            currentUser={theAuthUser}
+            balance={balance}
+            balanceID={balanceID}
+          />
+        )}
         {page === "stonks" && (
           <Stonks
             currentUser={theAuthUser}
