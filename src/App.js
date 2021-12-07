@@ -57,7 +57,9 @@ export default function App() {
           <h1></h1>
         </div>
         {/* {console.log(page)} */}
-        {page === "home" && <Homepage currentUser={theAuthUser} />}
+        {page === "home" && (
+          <Homepage currentUser={theAuthUser} setPage={setPage} />
+        )}
         {page === "portfolio" && (
           <Portfolio
             currentUser={theAuthUser}

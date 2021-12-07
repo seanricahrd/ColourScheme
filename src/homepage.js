@@ -1,7 +1,7 @@
 import background from "./images/stocksgoup.png";
 import money from "./images/money-money-money-make-it-rain.gif";
 
-export default function () {
+export default function ({ setPage }) {
   return (
     <div>
       {/* <img
@@ -20,17 +20,17 @@ export default function () {
         <br /> the perfect place to manage your stocks{" "}
       </h3>
       <div className="infopar">
-        <p className="par">
+        <p onClick={() => setPage("portfolio")} className="par">
           <b>portfolio</b>
           <br />
           keep track of your stocks
         </p>
-        <p className="par">
+        <p onClick={() => setPage("stonk")} className="par">
           <b>stonks</b>
           <br />
           buy stocks to add to your portfolio
         </p>
-        <p className="par">
+        <p onClick={() => setPage("User")} className="par">
           <b>user</b>
           <br />
           manage your balance

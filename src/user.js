@@ -30,11 +30,18 @@ const User = ({ currentUser, balanceID, balance, setBalance }) => {
         <div>
           <input
             type="number"
+            className="Addtobalance"
             placeholder="Add funds"
             onChange={(e) => setNewBalance(balance + Number(e.target.value))}
           />
         </div>
-        <button style={{ color: "white", backgroundColor: "forestgreen" }}>
+        <button
+          style={{
+            width: "71%",
+            color: "white",
+            backgroundColor: "forestgreen"
+          }}
+        >
           Add to balance
         </button>
       </form>
